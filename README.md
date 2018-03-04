@@ -1,6 +1,6 @@
 # grizzly-hello
 
-Simple hello world done using grizzly, gradle, and eclipse, using dot style folders.
+Simple hello world done using grizzly, gradle
 
 ## Usage
 http://localhost:9998/helloworld
