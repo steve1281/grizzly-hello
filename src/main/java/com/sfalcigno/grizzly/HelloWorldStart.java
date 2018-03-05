@@ -9,6 +9,7 @@ import org.glassfish.jersey.server.ResourceConfig;
 import com.sfalcigno.grizzly.endpoints.HelloWorld;
 import com.sfalcigno.grizzly.endpoints.GoodByeWorld;
 import com.sfalcigno.grizzly.endpoints.Echo;
+import com.sfalcigno.grizzly.endpoints.EchoPost;
 import org.glassfish.grizzly.http.server.HttpServer;
 
 public class HelloWorldStart {
@@ -16,7 +17,8 @@ public class HelloWorldStart {
 		URI baseUri = UriBuilder.fromUri("http://localhost/").port(9998).build();
 		ResourceConfig resourceConfig = new ResourceConfig(HelloWorld.class, 
                                                                    GoodByeWorld.class,
-                                                                   Echo.class );
+                                                                   Echo.class, 
+                                                                   EchoPost.class );
 		HttpServer server = GrizzlyHttpServerFactory.createHttpServer(baseUri, resourceConfig);
 		System.out.println("Press enter to stop the server...");			
 		System.in.read();
