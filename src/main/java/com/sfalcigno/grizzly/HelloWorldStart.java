@@ -8,12 +8,15 @@ import org.glassfish.jersey.grizzly2.httpserver.GrizzlyHttpServerFactory;
 import org.glassfish.jersey.server.ResourceConfig;
 import com.sfalcigno.grizzly.endpoints.HelloWorld;
 import com.sfalcigno.grizzly.endpoints.GoodByeWorld;
+import com.sfalcigno.grizzly.endpoints.Echo;
 import org.glassfish.grizzly.http.server.HttpServer;
 
 public class HelloWorldStart {
 	public static void main(String[] args) throws IOException {
 		URI baseUri = UriBuilder.fromUri("http://localhost/").port(9998).build();
-		ResourceConfig resourceConfig = new ResourceConfig(HelloWorld.class, GoodByeWorld.class );
+		ResourceConfig resourceConfig = new ResourceConfig(HelloWorld.class, 
+                                                                   GoodByeWorld.class,
+                                                                   Echo.class );
 		HttpServer server = GrizzlyHttpServerFactory.createHttpServer(baseUri, resourceConfig);
 		System.out.println("Press enter to stop the server...");			
 		System.in.read();
